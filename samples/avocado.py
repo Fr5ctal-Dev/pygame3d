@@ -23,8 +23,8 @@ model.rotation = (50, 0, 0)
 model.scale = 100
 
 # Add a light
-light2 = surface.add_light('ambient')
-light2.color = (150, 150, 150)
+light = surface.add_light('ambient')
+light.color = (150, 150, 150)
 
 # Main game loop
 while True:
