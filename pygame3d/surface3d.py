@@ -1,5 +1,6 @@
 from pygame3d.camera import Camera
 from pygame3d.mesh import Mesh
+from pygame3d.light import Light
 import pygame
 from panda3d.core import (GraphicsOutput,
                           Texture,
@@ -9,8 +10,8 @@ from panda3d.core import (GraphicsOutput,
                           FrameBufferProperties,
                           WindowProperties,
                           NodePath,
-                          PerspectiveLens,
-                          AmbientLight)
+                          PerspectiveLens)
+from typing import Literal
 
 
 class Surface3D(pygame.Surface):
@@ -97,10 +98,16 @@ class Surface3D(pygame.Surface):
         mesh.core.reparent_to(self._root_node)
         return mesh
 
+    def add_light(self, type: Literal['point', 'directional', 'ambient']):
+        light = Light(type)
+        light.core.reparent_to(self._root_node)
+        self._root_node.set_light(light.core)
+        return light
+
     @property
     def background_color(self):
         return self._display_region.get_clear_color()
 
     @background_color.setter
     def background_color(self, color):
-        self._display_region.set_clear_color((*color[:3], 0))
+        self._display_region.set_clear_color((color[0] / 255, color[1] / 255, color[2] / 255, 0))

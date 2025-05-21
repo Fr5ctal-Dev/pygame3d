@@ -20,8 +20,6 @@ class Light(Entity):
         light = NodePath(light)
         super().__init__(light)
 
-        self.core.parent.get_top().set_light(self.core)
-
     @property
     def color(self):
         return self.core.node().get_color()
