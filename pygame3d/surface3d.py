@@ -61,6 +61,8 @@ class Surface3D(pygame.Surface):
 
         self._display_region = self._graphics_buffer.make_display_region()
         self._display_region.camera = self.camera.core
+        self._display_region.set_clear_color_active(True)
+        self._display_region.set_clear_color((0, 0, 0, 0))
 
         self._ambient_light = self._root_node.attach_new_node(AmbientLight('ablight'))
         self._root_node.set_light(self._ambient_light)
@@ -97,3 +99,11 @@ class Surface3D(pygame.Surface):
 
         mesh.core.reparent_to(self._root_node)
         return mesh
+
+    @property
+    def background_color(self):
+        return self._display_region.get_clear_color()
+
+    @background_color.setter
+    def background_color(self, color):
+        self._display_region.set_clear_color((*color[:3], 0))
