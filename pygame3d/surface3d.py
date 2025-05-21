@@ -64,9 +64,6 @@ class Surface3D(pygame.Surface):
         self._display_region.set_clear_color_active(True)
         self._display_region.set_clear_color((0, 0, 0, 0))
 
-        self._ambient_light = self._root_node.attach_new_node(AmbientLight('ablight'))
-        self._root_node.set_light(self._ambient_light)
-
     def render(self) -> None:
         """
         Renders the surface in-place.
