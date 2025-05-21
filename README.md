@@ -7,3 +7,13 @@ Scene rendering:
 ![](assets/screenshot1.png)
 Avocado:
 ![](assets/screenshot2.png)
+
+## Installation
+
+----------
+To install Pygame3D, use the Python Package Manager and type:
+```
+pip install pygame3d
+```
+
+Once it is installed, you can start using it just like any other module!
