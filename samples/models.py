@@ -24,10 +24,11 @@ model.position = (0, 20, -2)
 light = surface.add_light('point')
 light.position = (20, 20, 20)
 
+light2 = surface.add_light('ambient')
+light2.color = (50, 50, 50)
+
 # Main game loop
 while True:
-    screen.fill((100, 100, 100))
-
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()

@@ -26,4 +26,4 @@ class Light(Entity):
 
     @color.setter
     def color(self, color: tuple):
-        self.core.node().set_color(color)
+        self.core.node().set_color((color[0] / 255, color[1] / 255, color[2] / 255, 1))
