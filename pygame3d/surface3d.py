@@ -35,9 +35,7 @@ class Surface3D(pygame.Surface):
         win_props.setSize(*self.get_size())
 
         flags = (
-                GraphicsPipe.BF_refuse_window |
-                GraphicsPipe.BF_can_bind_every |
-                GraphicsPipe.BF_rtt_cumulative
+                GraphicsPipe.BF_refuse_window
         )
 
         self._graphics_buffer = self._graphics_engine.make_output(
